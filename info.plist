@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>publish.dickyshi</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>392B4982-B969-4B32-BB45-20168FF0C309</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>AF50EBC3-E78C-40AC-B2B2-D7232BC82D40</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>4F64FB3C-6BAA-4149-B750-D1495034E081</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FDFFAA8B-636B-4899-AEDA-384B77BF189D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>9D28D677-55E1-4EA0-9336-8C23B15801E0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9DC3076E-FF2A-447A-A2D5-E89206531B47</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C54FBBC3-BB95-4055-BBE1-4056DEEF8576</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>392B4982-B969-4B32-BB45-20168FF0C309</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Lei Shi</string>
+	<key>description</key>
+	<string>publish my blog</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Publish</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>blog publish</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Publish my blog</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>4F64FB3C-6BAA-4149-B750-D1495034E081</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+tell application "iTerm"	activate	tell current window		create tab with default profile		tell current session of current tab			write text "cd /Users/DickyShi/workspace/Blog/jekyll"
+			write text "jekyll build"
+			write text "cd _site"
+			write text "git add --all"
+			write text "git commit -m 'New content update'"			write text "git push --force origin master"		end tell	end tellend tell
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>FDFFAA8B-636B-4899-AEDA-384B77BF189D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>http://localhost:4000</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>AF50EBC3-E78C-40AC-B2B2-D7232BC82D40</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>blog preview</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Preview my blog</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>C54FBBC3-BB95-4055-BBE1-4056DEEF8576</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+tell application "iTerm"	activate	tell current window		create tab with default profile		tell current session of current tab			write text "cd /Users/DickyShi/workspace/Blog/jekyll"
+			write text "jekyll serve"
+			delay 5		end tell	end tellend tell
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>392B4982-B969-4B32-BB45-20168FF0C309</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>source .jekyll_dir
+python blog.py --commit</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>9DC3076E-FF2A-447A-A2D5-E89206531B47</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>blog</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Fetching...</string>
+				<key>script</key>
+				<string>export LC_CTYPE="$(defaults read -g AppleLocale).UTF-8"
+export jekyll_dir='/Users/DickyShi/workspace/Blog/jekyll'
+echo 'export jekyll_dir='$jekyll_dir &gt; .jekyll_dir
+python blog.py "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Jekyll blog quick command</string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>9D28D677-55E1-4EA0-9336-8C23B15801E0</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>392B4982-B969-4B32-BB45-20168FF0C309</key>
+		<dict>
+			<key>xpos</key>
+			<integer>430</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+		<key>4F64FB3C-6BAA-4149-B750-D1495034E081</key>
+		<dict>
+			<key>xpos</key>
+			<integer>160</integer>
+			<key>ypos</key>
+			<integer>10</integer>
+		</dict>
+		<key>9D28D677-55E1-4EA0-9336-8C23B15801E0</key>
+		<dict>
+			<key>xpos</key>
+			<integer>160</integer>
+			<key>ypos</key>
+			<integer>360</integer>
+		</dict>
+		<key>9DC3076E-FF2A-447A-A2D5-E89206531B47</key>
+		<dict>
+			<key>xpos</key>
+			<integer>430</integer>
+			<key>ypos</key>
+			<integer>360</integer>
+		</dict>
+		<key>AF50EBC3-E78C-40AC-B2B2-D7232BC82D40</key>
+		<dict>
+			<key>xpos</key>
+			<integer>720</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+		<key>C54FBBC3-BB95-4055-BBE1-4056DEEF8576</key>
+		<dict>
+			<key>xpos</key>
+			<integer>160</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+		<key>FDFFAA8B-636B-4899-AEDA-384B77BF189D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>430</integer>
+			<key>ypos</key>
+			<integer>10</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
